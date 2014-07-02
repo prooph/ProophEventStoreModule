@@ -9,7 +9,7 @@
  * Date: 02.06.14 - 22:02
  */
 
-namespace src\ProophEventStoreModule;
+namespace ProophEventStoreModule;
 
 /**
  * Class Module
@@ -32,6 +32,17 @@ class Module
                     __NAMESPACE__ => __DIR__,
                 ),
             ),
+        );
+    }
+
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'prooph.event_store' => 'ProophEventStoreModule\Factory\EventStoreFactory',
+
+            )
         );
     }
 }

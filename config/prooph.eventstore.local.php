@@ -23,11 +23,11 @@ $adapter = array(
      *
      * Specify the adapter that ProophEventStore should use to persist events
      *
-     * Default value: zend_db_table
+     * Default value: zf2_adapter
      *
      * Available adapters: zend_db_table (more coming soon ...)
      */
-    'type' => 'zf2_event_store_adapter',    
+    'type' => 'zf2_adapter',    
     /**
      * Adapter options
      *
@@ -54,7 +54,7 @@ $adapter = array(
 
 
 return array(
-    'prooph.eventstore' => array(
+    'prooph.event_store' => array(
         'adapter' => $adapter
     )
 );

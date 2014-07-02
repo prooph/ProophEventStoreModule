@@ -8,11 +8,4 @@
  * 
  * Date: 02.06.14 - 22:03
  */
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'prooph.event_store' => '',
-
-        )
-    )
-);
+return array();

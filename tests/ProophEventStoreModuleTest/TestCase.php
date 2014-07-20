@@ -6,18 +6,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  * 
- * Date: 02.06.14 - 22:05
+ * Date: 20.07.14 - 15:27
  */
 
-namespace src\ProophEventStoreModule\Service;
+namespace ProophEventStoreModuleTest;
 
 /**
- * Class EventStoreFactory
+ * Class TestCase
  *
- * @package src\ProophEventStoreModule\Service
+ * @package ProophEventStoreModuleTest
  * @author Alexander Miertsch <kontakt@codeliner.ws>
  */
-class EventStoreFactory
+class TestCase extends \PHPUnit_Framework_TestCase
 {
 
 }

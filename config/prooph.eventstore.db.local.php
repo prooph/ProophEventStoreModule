@@ -1,21 +1,24 @@
 <?php
 /*
- * This file is part of the prooph/ProophEventStoreModule.
- * (c) Alexander Miertsch <contact@prooph.de>
+ * This file is part of the codeliner/ProophEventStoreModule.
+ * (c) Alexander Miertsch <kontakt@codeliner.ws>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  * 
- * Date: 02.06.14 - 22:49
+ * Date: 20.07.14 - 15:34
  */
 
 /**
- * ProophEventStore Adapter Configuration
+ * ProophEventStore Db Adapter Configuration
  *
  * If you have a ./config/autoload/ directory set up for your project, you can
  * drop this config file in it and change the values as you wish.
  *
- * Please make sure that you do not commit this file to your CVS cause it contains sensitive data.
+ * NOTE: Please make sure that you do not commit this file to your CVS cause it can contain sensitive data.
+ */
+/**
+ * Start of ProophEventStore Adapter Configuration
  */
 $adapter = array(
     /**
@@ -25,9 +28,9 @@ $adapter = array(
      *
      * Default value: zf2_adapter
      *
-     * Available adapters: zend_db_table (more coming soon ...)
+     * Available adapters: zf2_adapter (more coming soon ...)
      */
-    'type' => 'zf2_adapter',    
+    'type' => 'zf2_adapter',
     /**
      * Adapter options
      *
@@ -39,22 +42,23 @@ $adapter = array(
      *
      * Note: In most cases the default config is only useful for UnitTesting,
      */
-    'options' => array(	
+    'options' => array(
         'connection' => array(
             'driver' => 'Pdo_Sqlite',
             'database' => ':memory:'
         ),
-	//It's also possible to specify an DI alias for Zend\Db\Adapter\Adapter instead of configure a connection, which creates a specific Db-Adapter for the EventStore
-	//'zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
+        //It's also possible to specify an DI alias for Zend\Db\Adapter\Adapter instead of configure a connection.
+        //'zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
     ),
     /**
      * End of ProophEventStore Adapter Configuration
      */
 );
 
+/* DO NOT EDIT BELOW THIS LINE */
 
 return array(
     'prooph.event_store' => array(
-        'adapter' => $adapter
+        'adapter' => $adapter,
     )
 );

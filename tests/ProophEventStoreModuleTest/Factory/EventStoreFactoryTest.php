@@ -13,6 +13,7 @@ namespace ProophEventStoreModuleTest\Factory;
 
 use ProophEventStoreModule\Factory\EventStoreFactory;
 use ProophEventStoreModuleTest\Bootstrap;
+use ProophEventStoreModuleTest\Mock\FeatureMock;
 use ProophEventStoreModuleTest\TestCase;
 
 /**
@@ -23,6 +24,11 @@ use ProophEventStoreModuleTest\TestCase;
  */
 class EventStoreFactoryTest extends TestCase
 {
+    protected function tearDown()
+    {
+        FeatureMock::reset();
+    }
+
     /**
      * @test
      */
@@ -33,6 +39,10 @@ class EventStoreFactoryTest extends TestCase
         $eventStore = $factory->createService(Bootstrap::getServiceManager());
 
         $this->assertInstanceOf('Prooph\EventStore\EventStore', $eventStore);
+
+        $this->assertTrue(FeatureMock::isInvoked());
+
+        $this->assertSame(Bootstrap::getServiceManager(), FeatureMock::getMainServiceLocator());
     }
 }
  

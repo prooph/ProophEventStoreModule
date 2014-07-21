@@ -15,6 +15,8 @@ use Codeliner\ArrayReader\ArrayReader;
 use Prooph\EventStore\Configuration\Configuration;
 use Prooph\EventStore\Configuration\Exception\ConfigurationException;
 use Prooph\EventStore\EventStore;
+use Prooph\EventStore\Feature\FeatureManager;
+use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -60,7 +62,20 @@ class EventStoreFactory implements FactoryInterface
             $config['adapter']['options']['zend_db_adapter'] = $serviceLocator->get($adapterOptions['zend_db_adapter']);
         }
 
+        $featureManagerConfig = null;
+
+        if (isset($config['feature_manager'])) {
+            $featureManagerConfig = new Config($config['feature_manager']);
+            unset($config['feature_manager']);
+        }
+
         $esConfiguration = new Configuration($config);
+
+        $featureManager = new FeatureManager($featureManagerConfig);
+
+        $featureManager->setServiceLocator($serviceLocator);
+
+        $esConfiguration->setFeatureManager($featureManager);
 
         return new EventStore($esConfiguration);
     }

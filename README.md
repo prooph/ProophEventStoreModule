@@ -4,11 +4,12 @@ ProophEventStoreModule
 Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-store)
 
 [![Build Status](https://travis-ci.org/prooph/ProophEventStoreModule.svg?branch=master)](https://travis-ci.org/prooph/ProophEventStoreModule)
+[![Coverage Status](https://coveralls.io/repos/prooph/ProophEventStoreModule/badge.png)](https://coveralls.io/r/prooph/ProophEventStoreModule)
 
 Installation
 ------------
 
-You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~0.1"` as requirement to your composer.json.
+You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~0.2"` as requirement to your composer.json.
 
 #### Post installation
 
@@ -45,7 +46,5 @@ Retrieve ProophEventStore
 The ProophEventStore can be retrieved from ServiceManager by using the alias `prooph.event_store`
 
 ```php
-//Assume we are in a controller
-
-$eventStore = $this->getServiceLocator()->get('prooph.event_store');
+$eventStore = $services->get('prooph.event_store');
 ```

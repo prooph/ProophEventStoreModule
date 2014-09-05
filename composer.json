@@ -22,7 +22,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "prooph/event-store" : "~0.4",
+        "prooph/event-store" : "dev-0.5-dev",
+        "prooph/event-store-zf2-adapter" : "dev-master",
         "codeliner/array-reader" : "~1.1",
         "zendframework/zend-loader" : "~2.3",
         "zendframework/zend-servicemanager" : "~2.3",
@@ -31,7 +32,7 @@
     },
     "suggest": {
         "prooph/prooph-service-bus-module": "Use ProophServiceBus within your ZF2 project",
-        "prooph/prooph-crud-bridge-module": "Use CRUD functionality together with Prooph components"
+        "prooph/event-store-doctrine-adapter" : "If you prefer doctrine, a doctrine-adapter is available, too"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

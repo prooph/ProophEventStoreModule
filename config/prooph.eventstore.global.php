@@ -31,6 +31,31 @@ $features = array(
      */
 );
 
+$settings = array(
+    //Define a custom name for your event stream table (when using SingleStreamStrategy)
+    //'single_stream_name' => 'my_event_stream',
+
+    //Define a custom mapping for aggregate classes and stream names (when using a Aggregate(Type)StreamStrategy)
+    'aggregate_type_stream_map' => array(
+        //'My\Aggregate' => 'my_aggregate_stream'
+    ),
+    //Map a service alias to a repository class
+    //The repository will be constructed by ProophEventStoreModuleTest\Factory\AbstractRepositoryFactory
+    'repository_map' => array(
+        //If you just define a simple mapping (alias => class) the default AggregateTranslator
+        //and default StreamStrategy are injected into the repository
+        //'MyRepositoryAlias' => 'My\Aggregate\Repository',
+
+        //But you can also define custom dependencies for your repository by
+        //pointing to aliases of custom translator or stream implementations
+        /*'MyRepositoryAlias' => array(
+            'repository_class' => 'My\Aggregate\Repository',
+            'aggregate_translator' => 'AliasPointingToTranslator',
+            'stream_strategy' => 'AliasPointingToAStreamStrategy',
+        ),*/
+    ),
+);
+
 /* DO NOT EDIT BELOW THIS LINE */
 
 $featureAliases = array();
@@ -58,8 +83,8 @@ foreach ($features as $featureAlias => $config) {
 }
 
 return array(
-    'prooph.event_store' => array(
+    'prooph.event_store' => array_merge(array(
         'features' => $featureAliases,
         'feature_manager' => $featureManagerConfig,
-    )
+    ), $settings)
 );

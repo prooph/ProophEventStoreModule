@@ -34,9 +34,7 @@ class EventStoreFactoryTest extends TestCase
      */
     public function it_constructs_an_event_store()
     {
-        $factory = new EventStoreFactory();
-
-        $eventStore = $factory->createService(Bootstrap::getServiceManager());
+        $eventStore = Bootstrap::getServiceManager()->get('prooph.event_store');
 
         $this->assertInstanceOf('Prooph\EventStore\EventStore', $eventStore);
 

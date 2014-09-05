@@ -22,6 +22,37 @@ $features = array(
     ),
 );
 
+$settings = array(
+    'single_stream_name' => 'my_event_stream',
+    'aggregate_type_stream_map' => array(
+        'My\Aggregate' => 'my_aggregate_stream'
+    ),
+    'repository_map' => array(
+        //Test simple mapping
+        'repo_1' => 'Prooph\EventStore\Aggregate\AggregateRepository',
+        //Test repo with defaults
+        'repo_2' => array(
+            'repository_class' => 'Prooph\EventStore\Aggregate\AggregateRepository',
+        ),
+        //Test repo with custom dependencies
+        'repo_3' => array(
+            'repository_class' => 'Prooph\EventStore\Aggregate\AggregateRepository',
+            'aggregate_translator' => 'custom_translator',
+            'stream_strategy' => 'prooph.event_store.aggregate_stream_strategy',
+        ),
+        //Test wrong mapping
+        'repo_4' => false,
+        //Test missing repo class
+        'repo_5' => array(
+            'stream_strategy' => 'prooph.event_store.aggregate_stream_strategy',
+        ),
+        //Test repo class does not exist
+        'repo_6' => array(
+            'repository_class' => 'Not\Existing\Repo'
+        ),
+    ),
+);
+
 /* DO NOT EDIT BELOW THIS LINE */
 
 $featureAliases = array();
@@ -49,8 +80,13 @@ foreach ($features as $featureAlias => $config) {
 }
 
 return array(
-    'prooph.event_store' => array(
+    'service_manager' => array(
+        'invokables' => array(
+            'custom_translator' => 'ProophEventStoreModuleTest\Mock\CustomAggregateTranslator',
+        ),
+    ),
+    'prooph.event_store' => array_merge(array(
         'features' => $featureAliases,
         'feature_manager' => $featureManagerConfig,
-    )
+    ), $settings)
 );

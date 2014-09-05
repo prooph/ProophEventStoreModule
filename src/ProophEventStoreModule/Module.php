@@ -39,9 +39,20 @@ class Module
     public function getServiceConfig()
     {
         return array(
+            'invokables' => array(
+                'prooph.event_store.default_aggregate_translator' => 'Prooph\EventStore\Aggregate\DefaultAggregateTranslator',
+            ),
+            'aliases' => array(
+                'prooph.event_store.default_stream_strategy' => 'prooph.event_store.single_stream_strategy',
+            ),
             'factories' => array(
                 'prooph.event_store' => 'ProophEventStoreModule\Factory\EventStoreFactory',
-
+                'prooph.event_store.aggregate_stream_strategy' => 'ProophEventStoreModule\Factory\AggregateStreamStrategyFactory',
+                'prooph.event_store.aggregate_type_stream_strategy' => 'ProophEventStoreModule\Factory\AggregateTypeStreamStrategyFactory',
+                'prooph.event_store.single_stream_strategy' => 'ProophEventStoreModule\Factory\SingleStreamStrategyFactory',
+            ),
+            'abstract_factories' => array(
+                'ProophEventStoreModule\Factory\AbstractRepositoryFactory'
             )
         );
     }

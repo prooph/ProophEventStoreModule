@@ -56,7 +56,7 @@ class EventStoreFactory implements FactoryInterface
         $adapterType    = $configReader->stringValue("type");
         $adapterOptions = $configReader->arrayValue("options");
 
-        if ( $adapterType == "zf2_adapter"
+        if ( $adapterType == 'Prooph\EventStore\Adapter\Zf2\Zf2EventStoreAdapter'
             && isset($adapterOptions['zend_db_adapter'])
             && is_string($adapterOptions['zend_db_adapter'])) {
             $config['adapter']['options']['zend_db_adapter'] = $serviceLocator->get($adapterOptions['zend_db_adapter']);

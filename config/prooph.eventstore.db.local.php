@@ -25,17 +25,13 @@ $adapter = array(
      * Adapter Type
      *
      * Specify the adapter that ProophEventStore should use to persist events
-     *
-     * Default value: zf2_adapter
-     *
-     * Available adapters: zf2_adapter (more coming soon ...)
      */
-    'type' => 'zf2_adapter',
+    'type' => 'Prooph\EventStore\Adapter\Zf2\Zf2EventStoreAdapter',
     /**
      * Adapter options
      *
      * Specify configuration options for the adapter.
-     * If you want to set up an own persistence adapter for the EventStore than pass the connection params to the underlying
+     * If you want to set up an own persistent adapter for the EventStore than pass the connection params to the underlying
      * adapter with the help of the options key. The structure of the options array depends on the used adapter type.
      *
      * Default value: SQLite in memory connection config for Zend\Db\Adapter\Adapter.

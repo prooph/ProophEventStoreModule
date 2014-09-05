@@ -39,7 +39,8 @@
         "zendframework/zend-form" : "~2.3",
         "zendframework/zend-view" : "~2.3",
         "zendframework/zend-log" : "~2.3",
-        "zendframework/zend-config" : "~2.3"
+        "zendframework/zend-config" : "~2.3",
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "psr-0": { 

@@ -4,12 +4,12 @@ ProophEventStoreModule
 Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-store)
 
 [![Build Status](https://travis-ci.org/prooph/ProophEventStoreModule.svg?branch=master)](https://travis-ci.org/prooph/ProophEventStoreModule)
-[![Coverage Status](https://coveralls.io/repos/prooph/ProophEventStoreModule/badge.png)](https://coveralls.io/r/prooph/ProophEventStoreModule)
+[![Coverage Status](https://img.shields.io/coveralls/prooph/ProophEventStoreModule.svg)](https://coveralls.io/r/prooph/ProophEventStoreModule?branch=0.5-dev)
 
 Installation
 ------------
 
-You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~0.2"` as requirement to your composer.json.
+You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~0.3"` as requirement to your composer.json.
 
 #### Post installation
 

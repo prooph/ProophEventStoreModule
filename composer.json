@@ -22,8 +22,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "prooph/event-store" : "dev-0.5-dev",
-        "prooph/event-store-zf2-adapter" : "dev-master",
+        "prooph/event-store" : "~0.5",
+        "prooph/event-store-zf2-adapter" : "~0.1",
         "codeliner/array-reader" : "~1.1",
         "zendframework/zend-loader" : "~2.3",
         "zendframework/zend-servicemanager" : "~2.3",
@@ -44,7 +44,11 @@
     },
     "autoload": {
         "psr-0": { 
-            "ProophEventStoreModule\\": "src/",
+            "ProophEventStoreModule\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
             "ProophEventStoreModuleTest\\": "tests/"
         }
     }

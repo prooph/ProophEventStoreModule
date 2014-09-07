@@ -4,7 +4,7 @@ ProophEventStoreModule
 Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-store)
 
 [![Build Status](https://travis-ci.org/prooph/ProophEventStoreModule.svg?branch=master)](https://travis-ci.org/prooph/ProophEventStoreModule)
-[![Coverage Status](https://img.shields.io/coveralls/prooph/ProophEventStoreModule.svg)](https://coveralls.io/r/prooph/ProophEventStoreModule?branch=0.5-dev)
+[![Coverage Status](https://img.shields.io/coveralls/prooph/ProophEventStoreModule.svg)](https://coveralls.io/r/prooph/ProophEventStoreModule?branch=master)
 
 Installation
 ------------

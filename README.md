@@ -9,7 +9,7 @@ Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-s
 Installation
 ------------
 
-You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~1.0"` as requirement to your composer.json.
+You can install ProophEventStoreModule via composer by adding `"prooph/prooph-event-store-module": "~2.0"` as requirement to your composer.json.
 
 #### Post installation
 

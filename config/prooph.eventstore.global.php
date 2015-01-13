@@ -44,14 +44,19 @@ $settings = array(
     'repository_map' => array(
         //If you just define a simple mapping (alias => class) the default AggregateTranslator
         //and default StreamStrategy are injected into the repository
+        //The corresponding AggregateType for the repository needs to be available as a string service
+        //on the service manager. It is requested with the alias "prooph.event_store.<repo_alias>.aggregate_type"
+        //See unit tests for examples
         //'MyRepositoryAlias' => 'My\Aggregate\Repository',
 
         //But you can also define custom dependencies for your repository by
         //pointing to aliases of custom translator or stream implementations
+        //and directly provide the aggregate_type
         /*'MyRepositoryAlias' => array(
             'repository_class' => 'My\Aggregate\Repository',
             'aggregate_translator' => 'AliasPointingToTranslator',
             'stream_strategy' => 'AliasPointingToAStreamStrategy',
+            'aggregate_type' => 'My\Aggregate\Class',
         ),*/
     ),
 );

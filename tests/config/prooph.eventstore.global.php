@@ -33,22 +33,31 @@ $settings = array(
         //Test repo with defaults
         'repo_2' => array(
             'repository_class' => 'Prooph\EventStore\Aggregate\AggregateRepository',
+            'aggregate_type' => 'My_Aggregate'
         ),
         //Test repo with custom dependencies
         'repo_3' => array(
             'repository_class' => 'Prooph\EventStore\Aggregate\AggregateRepository',
             'aggregate_translator' => 'custom_translator',
             'stream_strategy' => 'prooph.event_store.aggregate_stream_strategy',
+            'aggregate_type' => 'My_Aggregate'
         ),
         //Test wrong mapping
         'repo_4' => false,
         //Test missing repo class
         'repo_5' => array(
+            'aggregate_type' => 'My_Aggregate',
+            'stream_strategy' => 'prooph.event_store.aggregate_stream_strategy',
+        ),
+        //Test missing aggregate_type class
+        'repo_6' => array(
+            'repository_class' => 'Prooph\EventStore\Aggregate\AggregateRepository',
             'stream_strategy' => 'prooph.event_store.aggregate_stream_strategy',
         ),
         //Test repo class does not exist
-        'repo_6' => array(
-            'repository_class' => 'Not\Existing\Repo'
+        'repo_7' => array(
+            'repository_class' => 'Not\Existing\Repo',
+            'aggregate_type' => 'My_Aggregate'
         ),
     ),
 );
@@ -84,6 +93,9 @@ return array(
         'invokables' => array(
             'custom_translator' => 'ProophEventStoreModuleTest\Mock\CustomAggregateTranslator',
         ),
+        'services' => array(
+            'prooph.event_store.repo_1.aggregate_type' => 'My_Aggregate',
+        )
     ),
     'prooph.event_store' => array_merge(array(
         'features' => $featureAliases,

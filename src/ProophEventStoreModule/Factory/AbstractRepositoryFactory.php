@@ -12,6 +12,7 @@
 namespace ProophEventStoreModule\Factory;
 
 use Prooph\EventStore\Aggregate\AggregateRepository;
+use Prooph\EventStore\Aggregate\AggregateType;
 use Prooph\EventStore\Configuration\Exception\ConfigurationException;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -74,20 +75,26 @@ class AbstractRepositoryFactory implements AbstractFactoryInterface
         $repoClass = "";
         $repoAggregateTranslator = "";
         $repoStreamStrategy = "";
+        $repoAggregateType = "";
 
         if (is_string($repoConfig)) {
             $repoClass = $repoConfig;
             $repoAggregateTranslator = "prooph.event_store.default_aggregate_translator";
             $repoStreamStrategy = "prooph.event_store.default_stream_strategy";
+            $repoAggregateType  = "prooph.event_store." . $requestedName . "aggregate_type";
         } else if (is_array($repoConfig)) {
             if (! isset($repoConfig['repository_class'])) {
                 throw ConfigurationException::configurationError("Missing repository_class for alias " . $requestedName);
             }
 
+            if (! isset($repoConfig['aggregate_type'])) {
+                throw ConfigurationException::configurationError("Missing aggregate_type for alias " . $requestedName);
+            }
+
             $repoClass = $repoConfig['repository_class'];
             $repoAggregateTranslator = isset($repoConfig['aggregate_translator'])? $repoConfig['aggregate_translator'] : "prooph.event_store.default_aggregate_translator";
             $repoStreamStrategy = isset($repoConfig['stream_strategy'])? $repoConfig['stream_strategy'] : "prooph.event_store.default_stream_strategy";
-
+            $repoAggregateType = $repoConfig['aggregate_type'];
         } else {
             throw ConfigurationException::configurationError("Wrong type provided for repository map of alias " . $requestedName);
         }
@@ -103,7 +110,8 @@ class AbstractRepositoryFactory implements AbstractFactoryInterface
         return new $repoClass(
             $serviceLocator->get('prooph.event_store'),
             $serviceLocator->get($repoAggregateTranslator),
-            $serviceLocator->get($repoStreamStrategy)
+            $serviceLocator->get($repoStreamStrategy),
+            AggregateType::fromString($repoAggregateType)
         );
     }
 }

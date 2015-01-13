@@ -22,8 +22,8 @@
     ],
     "require": {
         "php": ">=5.4",
-        "prooph/event-store" : "~1.0",
-        "prooph/event-store-zf2-adapter" : "~0.1",
+        "prooph/event-store" : "~2.0",
+        "prooph/event-store-zf2-adapter" : "~0.3",
         "codeliner/array-reader" : "~1.1",
         "zendframework/zend-loader" : "~2.3",
         "zendframework/zend-servicemanager" : "~2.3",

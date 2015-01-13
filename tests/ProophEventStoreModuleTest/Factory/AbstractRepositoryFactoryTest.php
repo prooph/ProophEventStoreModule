@@ -81,13 +81,23 @@ class AbstractRepositoryFactoryTest extends TestCase
         Bootstrap::getServiceManager()->get("repo_5");
     }
 
+
+    /**
+     * @test
+     */
+    public function it_throws_exception_if_aggregate_type_is_missing()
+    {
+        $this->setExpectedException('Zend\ServiceManager\Exception\ServiceNotCreatedException');
+        Bootstrap::getServiceManager()->get("repo_6");
+    }
+
     /**
      * @test
      */
     public function it_throws_exception_if_repository_class_can_not_be_found()
     {
         $this->setExpectedException('Zend\ServiceManager\Exception\ServiceNotCreatedException');
-        Bootstrap::getServiceManager()->get("repo_6");
+        Bootstrap::getServiceManager()->get("repo_7");
     }
 }
  

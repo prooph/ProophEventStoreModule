@@ -1,7 +1,8 @@
 ProophEventStoreModule
 ======================
 
-Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-store)
+[deprecated] Zend Framework 2 Module for [ProophEventStore](https://github.com/prooph/event-store)
+This module only support ProophEventStore <= 2.x. If you want to use PES v3+ with ZF2 then checkout [proophessor](https://github.com/prooph/proophessor)
 
 [![Build Status](https://travis-ci.org/prooph/ProophEventStoreModule.svg?branch=master)](https://travis-ci.org/prooph/ProophEventStoreModule)
 [![Coverage Status](https://img.shields.io/coveralls/prooph/ProophEventStoreModule.svg)](https://coveralls.io/r/prooph/ProophEventStoreModule?branch=master)
